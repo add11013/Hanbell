@@ -6,7 +6,6 @@
     android:layout_height="55dip">
 
 
-
     <TextView
         android:id="@+id/lblListItem"
         android:textSize="16dp"

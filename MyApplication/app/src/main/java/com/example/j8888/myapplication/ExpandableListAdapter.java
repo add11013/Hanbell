@@ -24,20 +24,25 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         this.context = context;
         this.listDataHeader = listDataHeader;
         this.listHashMap = listHashMap;
+
     }
+
 
     @Override
     public int getGroupCount() {
+
         return listDataHeader.size();
     }
 
     @Override
     public int getChildrenCount(int i) {
+
         return listHashMap.get(listDataHeader.get(i)).size();
     }
 
     @Override
     public Object getGroup(int i) {
+
         return listDataHeader.get(i);
     }
 
@@ -90,8 +95,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return view;
     }
 
+
     @Override
     public boolean isChildSelectable(int i, int i1) {
+
         return true;
     }
 }
