@@ -1,159 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="3"
     tools:context="com.example.j8888.test.MainmenuActivity">
 
 
-    <RelativeLayout
-        android:layout_width="1264dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="6dp">
+    <ScrollView
+        android:layout_width="1207dp"
+        android:layout_height="724dp"
+        >
 
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="22dp"
-            android:scaleType="center"
-            app:srcCompat="@mipmap/menu1"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="簽核"
-            android:textSize="30dp"
-            android:layout_below="@+id/imageButton1"
-            android:layout_toLeftOf="@+id/imageButton2"
-            android:layout_toStartOf="@+id/imageButton2"
-            android:layout_marginRight="84dp"
-            android:layout_marginEnd="84dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="報表"
-            android:textSize="30dp"
-            android:layout_marginRight="84dp"
-            android:layout_marginEnd="84dp"
-            android:layout_below="@+id/imageButton2"
-            android:layout_toLeftOf="@+id/imageButton6"
-            android:layout_toStartOf="@+id/imageButton6" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignEnd="@+id/imageButton3"
-            android:layout_alignRight="@+id/imageButton3"
-            android:layout_below="@+id/imageButton3"
-            android:layout_marginEnd="83dp"
-            android:layout_marginRight="83dp"
-            android:text="人事"
-            android:textSize="30dp" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="採購"
-            android:textSize="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignLeft="@+id/textView1"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/textView1"
-            android:text="生產"
-            android:textSize="30dp" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="品管"
-            android:textSize="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignTop="@+id/imageButton1"
-            android:layout_marginLeft="96dp"
-            android:layout_marginStart="96dp"
-            android:layout_toEndOf="@+id/imageButton1"
-            android:layout_toRightOf="@+id/imageButton1"
-            app:srcCompat="@mipmap/menu2" />
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignLeft="@+id/imageButton6"
-            android:layout_alignStart="@+id/imageButton6"
-            android:layout_alignTop="@+id/imageButton2"
-            app:srcCompat="@mipmap/menu3" />
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignLeft="@+id/imageButton1"
-            android:layout_alignStart="@+id/imageButton1"
-            android:layout_below="@+id/imageButton1"
-            android:layout_marginTop="44dp"
-            app:srcCompat="@mipmap/menu4" />
-
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignLeft="@+id/imageButton2"
-            android:layout_alignStart="@+id/imageButton2"
-            android:layout_alignTop="@+id/imageButton4"
-            app:srcCompat="@mipmap/menu5" />
-
-        <ImageButton
-            android:id="@+id/imageButton6"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignTop="@+id/imageButton5"
-            android:layout_marginLeft="98dp"
-            android:layout_marginStart="98dp"
-            android:layout_toRightOf="@+id/imageButton5"
-            app:srcCompat="@mipmap/menu6" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
-
-        <TextView
-            android:id="@+id/textView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="TextView"
-            android:textSize="30dp" />
-    </RelativeLayout>
+            android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imageButton1"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu1" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu2" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu3" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            簽核"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            報表"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            人事"
+                        android:textSize="30sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ImageButton
+                        android:id="@+id/imageButton4"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu4" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton5"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu5" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton6"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu6" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            生產"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            採購"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            品管"
+                        android:textSize="30sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ImageButton
+                        android:id="@+id/imageButton7"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu7" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton13"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu7" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton12"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="101dp"
+                        android:layout_marginStart="101dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@mipmap/menu7" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            股票"
+                        android:textSize="30sp" />
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            股票"
+                        android:textSize="30sp" />
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="            股票"
+                        android:textSize="30sp" />
+                </TableRow>
+
+            </TableLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

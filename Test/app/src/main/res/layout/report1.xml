@@ -6,85 +6,27 @@
     >
 
     <TextView
-        android:id="@+id/textView1"
-        android:text="年"
-        android:textSize="25dp"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/YearSpinner"
-        android:layout_toRightOf="@+id/YearSpinner"
-        android:layout_toEndOf="@+id/YearSpinner" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="月"
-        android:textSize="25dp"
-        android:layout_alignBottom="@+id/MonthSpinner"
-        android:layout_toRightOf="@+id/MonthSpinner"
-        android:layout_toEndOf="@+id/MonthSpinner" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="日"
-        android:textSize="25dp"
-        android:layout_alignBottom="@+id/DaySpinner"
-        android:layout_toRightOf="@+id/DaySpinner"
-        android:layout_toEndOf="@+id/DaySpinner" />
-
-    <Spinner
-        android:id="@+id/YearSpinner"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="79dp" />
-
-    <Spinner
-        android:id="@+id/MonthSpinner"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginStart="70dp"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_toRightOf="@+id/textView1"
-        android:layout_toEndOf="@+id/textView1" />
-
-    <Spinner
-        android:id="@+id/DaySpinner"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="72dp"
-        android:layout_marginStart="72dp"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
-
-    <TextView
         android:id="@+id/tabletitle"
         android:layout_width="1300dp"
         android:layout_height="wrap_content"
         android:text="  年月日     公司     本日    實際累計         目標          達成率      去年同期    成長率"
         android:textSize="35dp"
         android:textColor="@android:color/black"
-        android:layout_marginLeft="70dp"
-        android:layout_marginStart="70dp"
-        android:layout_above="@+id/scrollView2"
+        android:layout_marginTop="56dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginStart="68dp"
+        android:layout_below="@+id/textView1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginBottom="62dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_height="300dp"
         android:background="#DDDDDD"
-        android:id="@+id/scrollView2">
+        android:layout_below="@+id/tabletitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,9 +39,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="30dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/monthTXT"
@@ -107,9 +49,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/dayTXT"
@@ -117,9 +59,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/companyTXT"
@@ -127,9 +69,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="30dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/todayTXT"
@@ -137,9 +79,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="30dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/accumulationTXT"
@@ -147,9 +89,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="30dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/targetTXT"
@@ -157,9 +99,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/TargetRateTXT"
@@ -167,9 +109,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="30dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/lastYearTXT"
@@ -177,9 +119,9 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="30dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/RateTXT"
@@ -187,10 +129,98 @@
                 android:layout_height="2000dp"
                 android:layout_marginLeft="30dp"
                 android:layout_weight="1"
+                android:gravity="right"
                 android:text="TextView"
-                android:textSize="30dp"
-                android:gravity="right"/>
+                android:textSize="30dp" />
         </LinearLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="254dp"
+            android:layout_marginStart="254dp"
+            android:layout_marginTop="25dp"
+            android:text="年"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:text="月"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="244dp"
+            android:layout_marginRight="244dp"
+            android:text="日"
+            android:textSize="25dp" />
+
+        <Spinner
+            android:id="@+id/YearSpinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignEnd="@+id/textView1"
+            android:layout_alignRight="@+id/textView1"
+            android:layout_marginEnd="99dp"
+            android:layout_marginRight="99dp" />
+
+        <Spinner
+            android:id="@+id/MonthSpinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_toLeftOf="@+id/textView2"
+            android:layout_toStartOf="@+id/textView2" />
+
+        <Spinner
+            android:id="@+id/DaySpinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_toLeftOf="@+id/textView3"
+            android:layout_toStartOf="@+id/textView3" />
+    </RelativeLayout>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/bargraph"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="450dp"
+        android:layout_width="800dp"
+        android:layout_height="400dp" />
+
+    <TextView
+        android:id="@+id/Total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="TextView"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_below="@+id/scrollView2"
+        android:layout_alignLeft="@+id/bargraph"
+        android:layout_alignStart="@+id/bargraph" />
 
 </RelativeLayout>

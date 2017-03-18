@@ -14,9 +14,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.util.ArrayList;
 
 /**
  * Created by Roderick on 3/10/2017.
@@ -26,7 +39,12 @@ public class report_1 extends Fragment {
     private int rows_num,rows,sum,sum1;
     private String YearspinnerValue,MonthspinnerValue,DayspinnerValue,WHERE;
     private String month="",day="",today="",target="",company="",year="",accumulation="",TargetRate="",LastYear="",Rate="";
-    private TextView yearTXT,monthTXT,dayTXT,companyTXT,todayTXT,accumulationTXT,targetTXT,TargetRateTXT,lastYearTXT,RateTXT,tabletitle;
+    private TextView yearTXT,monthTXT,dayTXT,companyTXT,todayTXT,accumulationTXT,targetTXT,TargetRateTXT,lastYearTXT,RateTXT,tabletitle,Total;
+    private int TodayTotal,AccumulationTotal,TargetTotal,LastYearTotal;
+    final ArrayList<String> xLabel = new ArrayList<>();
+    ArrayList<String> Date = new ArrayList<>();
+    BarChart barChart;
+
     @Nullable
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -51,6 +69,9 @@ public class report_1 extends Fragment {
         lastYearTXT=(TextView) view.findViewById(R.id.lastYearTXT);
         RateTXT=(TextView) view.findViewById(R.id.RateTXT);
         tabletitle=(TextView) view.findViewById(R.id.tabletitle);
+        Total=(TextView) view.findViewById(R.id.Total);
+        barChart=(BarChart) view.findViewById(R.id.bargraph);
+
 
         //Spinner
         final Spinner Yearspinner = (Spinner) view.findViewById(R.id.YearSpinner);
@@ -113,8 +134,7 @@ public class report_1 extends Fragment {
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
-
-
+        paintchart();
         runDB();
         return view;
     }
@@ -124,6 +144,8 @@ public class report_1 extends Fragment {
 
         }
     };
+
+
 
     private void insertData(){
         SQLiteDatabase db=getActivity().openOrCreateDatabase("report.db",android.content.Context.MODE_PRIVATE,null);
@@ -147,19 +169,11 @@ public class report_1 extends Fragment {
     }
     private void runDB(){
         //DB
-        SQLiteDatabase db=getActivity().openOrCreateDatabase("report.db",android.content.Context.MODE_PRIVATE,null);
+        SQLiteDatabase db=getActivity().openOrCreateDatabase("report.db", Context.MODE_PRIVATE,null);
         try{
             insertData();
-            year="";
-            month="";
-            day="";
-            company="";
-            today="";
-            accumulation="";
-            target="";
-            TargetRate="";
-            LastYear="";
-            Rate="";
+            year="";month="";day="";company="";today="";accumulation="";target="";TargetRate="";LastYear="";Rate="";
+            TodayTotal=0;AccumulationTotal=0;TargetTotal=0;LastYearTotal=0;
             Cursor cursor = db.rawQuery("SELECT * FROM table01 "+WHERE,null);
             rows_num =cursor.getCount();
             if(rows_num != 0) {
@@ -170,6 +184,7 @@ public class report_1 extends Fragment {
                     day = day+Integer.toString(cursor.getInt(3))+"\n";
                     company = company+cursor.getString(4)+"\n";
                     today = today+Integer.toString(cursor.getInt(5))+"\n";
+                    TodayTotal=TodayTotal+cursor.getInt(5);
                     //Accumulation Caculate
                     Cursor CursorAccumulation = db.rawQuery("SELECT * FROM table01 WHERE year="+cursor.getInt(1)+" AND month="+cursor.getInt(2)+" AND day<="+cursor.getInt(3)+" AND company='"+cursor.getString(4)+"'",null);
                     rows=CursorAccumulation.getCount();
@@ -181,7 +196,9 @@ public class report_1 extends Fragment {
                         CursorAccumulation.moveToNext();
                     }
                     accumulation=accumulation+Integer.toString(sum)+"\n";
+                    AccumulationTotal=AccumulationTotal+sum;
                     target=target+Integer.toString(cursor.getInt(6))+"\n";
+                    TargetTotal=TargetTotal+cursor.getInt(6);
 
                     //TargetRate Caculate
                     Float a=(float) cursor.getInt(5)/cursor.getInt(6)*100;
@@ -198,6 +215,7 @@ public class report_1 extends Fragment {
                         CursorLastyear.moveToNext();
                     }
                     LastYear=LastYear+Integer.toString(sum1)+"\n";
+                    LastYearTotal=LastYearTotal+sum1;
 
                     //Rate Caculate
                     Float b=(float) sum/sum1*100;
@@ -206,7 +224,6 @@ public class report_1 extends Fragment {
                     cursor.moveToNext();
                 }
             }
-
 
             yearTXT.setText(year);
             monthTXT.setText(month);
@@ -218,12 +235,90 @@ public class report_1 extends Fragment {
             TargetRateTXT.setText(TargetRate);
             lastYearTXT.setText(LastYear);
             RateTXT.setText(Rate);
+            Total.setText("Total                           "+Integer.toString(TodayTotal)+"                 "+Integer.toString(AccumulationTotal)+"               "+Integer.toString(TargetTotal)+"                                          "+Integer.toString(LastYearTotal));
         }catch (Exception e){
             //tabletitle.setText(e.toString());
         }
         db.execSQL("DROP TABLE table01");
         db.close();
+
     }
+
+    private void paintchart(){
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        ArrayList<IBarDataSet> dataSets = new ArrayList<>();
+        try{
+        SQLiteDatabase db=getActivity().openOrCreateDatabase("report.db", Context.MODE_PRIVATE,null);
+            insertData();
+        float count=0;
+        int BarToday=0;
+        for (int i=2014;i<=2017;i++){
+            for (int j=1;j<=12;j++){
+                for (int k=1;k<=31;k++){
+                    Cursor cursorTotal = db.rawQuery("SELECT * FROM table01 WHERE year='"+Integer.toString(i)+"' AND month='"+Integer.toString(j)+"' AND day='"+Integer.toString(k)+"'",null);
+                    rows_num =cursorTotal.getCount();
+                    if(rows_num != 0) {
+                        BarToday=0;
+                        cursorTotal.moveToFirst();			//將指標移至第一筆資料
+                        for(int ii=0; ii<rows_num; ii++) {
+                            BarToday=BarToday+cursorTotal.getInt(5);
+                            cursorTotal.moveToNext();
+                        }
+                        tabletitle.setText(Integer.toString(BarToday)+Float.toString(count));
+                        entries.add(new BarEntry(count, BarToday));
+                        xLabel.add(Integer.toString(i)+"/"+Integer.toString(j)+"/"+Integer.toString(k)+"/");
+                        count+=1;
+                    }
+                    cursorTotal.close();
+                }
+            }
+        }
+
+
+        //Chart
+/*
+        entries.add(new BarEntry(0f, 0));
+        entries.add(new BarEntry(1f, 1));
+        entries.add(new BarEntry(2f, 2));
+        entries.add(new BarEntry(3f, 3));
+        entries.add(new BarEntry(4f, 4));
+        entries.add(new BarEntry(5f, 5));*/
+        BarDataSet depenses = new BarDataSet(entries, "depenses");
+        for(int i=0;i<count;i++){
+            xLabel.add("1");
+        }
+
+        dataSets.add((IBarDataSet) depenses);
+        BarData Data = new BarData(dataSets);
+
+        barChart.setData(Data);
+        barChart.setTouchEnabled(true);
+        barChart.setDragEnabled(true);
+        barChart.setScaleEnabled(true);
+        barChart.animateXY(3000, 3000);
+        barChart.setHorizontalScrollBarEnabled(true);
+        barChart.setDoubleTapToZoomEnabled(true);
+        depenses.setColors(ColorTemplate.COLORFUL_COLORS);
+        //int color = getResources().getColor(R.color.colorPrimary);
+        //depenses.setColor(color);
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return xLabel.get((int)value);
+            }
+        });
+            db.execSQL("DROP TABLE table01");
+            db.close();
+        }catch (Exception e){
+            tabletitle.setText(e.toString());
+        }
+    }
+
+
     private void CaculateQueryWHERE(){
         if (YearspinnerValue=="" && MonthspinnerValue=="" && DayspinnerValue=="")
             WHERE="";

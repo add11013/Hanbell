@@ -24,5 +24,14 @@ public class MainmenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ImageButton imageButton7 = (ImageButton)findViewById(R.id.imageButton7);
+        imageButton7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainmenuActivity.this , Activity7.class);
+                startActivity(intent);
+            }
+        });
     }
 }
