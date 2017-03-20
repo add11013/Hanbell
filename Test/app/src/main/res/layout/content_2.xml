@@ -9,4 +9,12 @@
     tools:context="com.example.j8888.test.Activity2"
     tools:showIn="@layout/app_bar_2">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="25dp"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="405dp" />
 </android.support.constraint.ConstraintLayout>

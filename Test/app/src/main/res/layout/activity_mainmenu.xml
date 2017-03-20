@@ -50,9 +50,8 @@
                         android:layout_marginTop="40dp"
                         android:layout_weight="1"
                         app:srcCompat="@mipmap/menu2" />
-
                     <ImageButton
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/imageButton7"
                         android:layout_width="300dp"
                         android:layout_height="300dp"
                         android:layout_alignParentLeft="true"
@@ -62,7 +61,9 @@
                         android:layout_marginStart="101dp"
                         android:layout_marginTop="40dp"
                         android:layout_weight="1"
-                        app:srcCompat="@mipmap/menu3" />
+                        app:srcCompat="@mipmap/menu7" />
+
+
 
                 </TableRow>
 
@@ -94,16 +95,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="            人事"
+                        android:text="            股票"
                         android:textSize="30sp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
-
                     <ImageButton
-                        android:id="@+id/imageButton4"
+                        android:id="@+id/imageButton3"
                         android:layout_width="300dp"
                         android:layout_height="300dp"
                         android:layout_alignParentLeft="true"
@@ -113,7 +113,8 @@
                         android:layout_marginStart="101dp"
                         android:layout_marginTop="40dp"
                         android:layout_weight="1"
-                        app:srcCompat="@mipmap/menu4" />
+                        app:srcCompat="@mipmap/menu3" />
+
 
                     <ImageButton
                         android:id="@+id/imageButton5"
@@ -153,7 +154,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="            生產"
+                        android:text="            人事"
                         android:textSize="30sp" />
 
                     <TextView
@@ -180,7 +181,7 @@
                     android:layout_height="match_parent" >
 
                     <ImageButton
-                        android:id="@+id/imageButton7"
+                        android:id="@+id/imageButton4"
                         android:layout_width="300dp"
                         android:layout_height="300dp"
                         android:layout_alignParentLeft="true"
@@ -190,7 +191,7 @@
                         android:layout_marginStart="101dp"
                         android:layout_marginTop="40dp"
                         android:layout_weight="1"
-                        app:srcCompat="@mipmap/menu7" />
+                        app:srcCompat="@mipmap/menu4" />
 
                     <ImageButton
                         android:id="@+id/imageButton13"
@@ -230,7 +231,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="            股票"
+                        android:text="            生產"
                         android:textSize="30sp" />
                     <TextView
                         android:id="@+id/textView8"

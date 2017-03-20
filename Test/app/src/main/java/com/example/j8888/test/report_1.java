@@ -264,9 +264,8 @@ public class report_1 extends Fragment {
                             BarToday=BarToday+cursorTotal.getInt(5);
                             cursorTotal.moveToNext();
                         }
-                        tabletitle.setText(Integer.toString(BarToday)+Float.toString(count));
                         entries.add(new BarEntry(count, BarToday));
-                        xLabel.add(Integer.toString(i)+"/"+Integer.toString(j)+"/"+Integer.toString(k)+"/");
+                        xLabel.add(Integer.toString(i)+"/"+Integer.toString(j)+"/"+Integer.toString(k));
                         count+=1;
                     }
                     cursorTotal.close();
