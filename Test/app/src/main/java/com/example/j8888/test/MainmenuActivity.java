@@ -14,7 +14,15 @@ public class MainmenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
 
-
+        ImageButton imageButton1 = (ImageButton)findViewById(R.id.imageButton1);
+        imageButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainmenuActivity.this , Activity1.class);
+                startActivity(intent);
+            }
+        });
         ImageButton imageButton2 = (ImageButton)findViewById(R.id.imageButton2);
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
