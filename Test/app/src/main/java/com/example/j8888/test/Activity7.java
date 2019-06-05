@@ -19,7 +19,7 @@ public class Activity7 extends AppCompatActivity {
         webView1.setWebChromeClient(new WebChromeClient());
         webView1.setWebViewClient(new WebViewClient());
         webView1.getSettings().setJavaScriptEnabled(true);
-        webView1.loadUrl("http://stocks.sina.cn/sh/?code=sz002158&vt=4");
+        webView1.loadUrl("https://histock.tw/global/history.aspx?mid=13&no=SZ002158");
 
         }
         catch (Exception e){
